@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Olya Pronkina](https://up.htmlacademy.ru/javascript/31/user/2392951).
-* Наставник: `Неизвестно`.
+- Студент: [Olya Pronkina](https://up.htmlacademy.ru/javascript/31/user/2392951).
+- Наставник: `Анастасия Гущина`.
 
 ---
 
