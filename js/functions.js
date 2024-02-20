@@ -34,6 +34,7 @@ const definePolindrom = (string) => {
   return false;
 };
 
+definePolindrom();
 // console.log(definePolindrom('топот'));
 // console.log(definePolindrom('ДовОд'));
 // console.log(definePolindrom('Кекс'));
