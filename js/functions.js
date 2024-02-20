@@ -20,21 +20,36 @@ controlStringLength('проверяемая строка', 20);
 /*Функция для проверки, является ли строка палиндромом.
 Палиндром — это слово или фраза, которые одинаково читаются и слева направо и справа налево.*/
 
-const definePolindrom = (string) => {
-  const withoutSpacesString = string.replaceAll(' ', '');
-  const lowerCaseString = lowerCaseString.toLowerCase();
+// const definePolindrom = (string) => {
+//   const withoutSpacesString = string.replaceAll(' ', '');
+//   const lowerCaseString = lowerCaseString.toLowerCase();
 
-  let newString = '';
-  for (index = lowerCaseString.length - 1; index >= 0; index--) {
-    newString += lowerCaseString[index];
-  }
-  if (newString === lowerCaseString) {
-    return true;
-  }
-  return false;
-};
+//   let newString = '';
+//   for (index = lowerCaseString.length - 1; index >= 0; index--) {
+//     newString += lowerCaseString[index];
+//   }
+//   if (newString === lowerCaseString) {
+//     return true;
+//   }
+//   return false;
+// };
 
-definePolindrom();
+// definePolindrom();
 // console.log(definePolindrom('топот'));
 // console.log(definePolindrom('ДовОд'));
 // console.log(definePolindrom('Кекс'));
+
+/**********************************************************/
+const isPalindrome = (string) => {
+  string = string.replaceAll(' ', '').toLowerCase();
+
+  let reversed = '';
+
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversed += string[i];
+  }
+
+  return string === reversed;
+};
+
+isPalindrome();
