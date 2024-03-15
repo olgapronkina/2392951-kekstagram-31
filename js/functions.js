@@ -40,16 +40,16 @@ controlStringLength('проверяемая строка', 20);
 // console.log(definePolindrom('Кекс'));
 
 /**********************************************************/
-const isPalindrome = (string) => {
-  string = string.replaceAll(' ', '').toLowerCase();
+// const isPalindrome = (string) => {
+//   string = string.replaceAll(' ', '').toLowerCase();
 
-  let reversed = '';
+//   let reversed = '';
 
-  for (let i = string.length - 1; i >= 0; i--) {
-    reversed += string[i];
-  }
+//   for (let i = string.length - 1; i >= 0; i--) {
+//     reversed += string[i];
+//   }
 
-  return string === reversed;
-};
+//   return string === reversed;
+// };
 
-isPalindrome();
+// isPalindrome();
