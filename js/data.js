@@ -41,7 +41,7 @@ const RangeIDComment = {
   MAX: 1000,
 };
 
-const RangeURLs = {
+const RangePhotoIds = {
   MIN: 1,
   MAX: 25,
 };
@@ -56,6 +56,11 @@ const countOfComments = {
   MAX: 30,
 };
 
+const RangeAvatarIds = {
+  MIN: 1,
+  MAX: 6,
+};
+
 export {
   POST_DESCRIPTIONS,
   COMMENT_NAMES,
@@ -63,7 +68,8 @@ export {
   POST_COUNT,
   RangeIDs,
   RangeIDComment,
-  RangeURLs,
+  RangePhotoIds,
   RangeLikes,
   countOfComments,
+  RangeAvatarIds,
 };

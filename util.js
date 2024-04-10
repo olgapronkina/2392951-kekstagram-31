@@ -5,14 +5,14 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const createRandomIdFromRangeGenerator = (min, max) => {
+const createUniqueIdsGenerator = (min, max) => {
   const previousValues = [];
 
   return () => {
-    let currentValue = getRandomInteger(min, max);
     if (previousValues.length >= max - min + 1) {
       return null;
     }
+    let currentValue = getRandomInteger(min, max);
     while (previousValues.includes(currentValue)) {
       currentValue = getRandomInteger(min, max);
     }
@@ -24,8 +24,4 @@ const createRandomIdFromRangeGenerator = (min, max) => {
 const getRandomArrayElement = (elements) =>
   elements[getRandomInteger(0, elements.length - 1)];
 
-export {
-  getRandomInteger,
-  createRandomIdFromRangeGenerator,
-  getRandomArrayElement,
-};
+export { getRandomInteger, createUniqueIdsGenerator, getRandomArrayElement };
