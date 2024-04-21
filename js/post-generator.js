@@ -3,6 +3,7 @@ import {
   createUniqueIdsGenerator,
   getRandomArrayElement,
 } from './util.js';
+
 import {
   POST_DESCRIPTIONS,
   COMMENT_NAMES,
