@@ -6,15 +6,17 @@ const photoFragment = document.createDocumentFragment();
 
 const renderPhotos = (photos) => {
   photos.forEach((photo) => {
-    const { url, description, likes, comments } = photo;
-    const image = templatePicture.querySelector('.picture__img');
-    const imageClone = image.cloneNode(true);
-    imageClone.src = url;
-    imageClone.alt = description;
-    templatePicture.querySelector('.picture__likes').textContent = likes;
-    templatePicture.querySelector('.picture__comments').textContent =
+    const { id, url, description, likes, comments } = photo;
+    const templatePictureClone = templatePicture.cloneNode(true);
+    const image = templatePictureClone.querySelector('.picture__img');
+
+    templatePictureClone.dataset.pictureId = id;
+    image.src = url;
+    image.alt = description;
+    templatePictureClone.querySelector('.picture__likes').textContent = likes;
+    templatePictureClone.querySelector('.picture__comments').textContent =
       comments.length;
-    photoFragment.appendChild(imageClone);
+    photoFragment.appendChild(templatePictureClone);
   });
   picturesList.appendChild(photoFragment);
 };
