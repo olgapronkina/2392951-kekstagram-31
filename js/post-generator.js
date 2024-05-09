@@ -29,18 +29,14 @@ const generatePhotoId = createUniqueIdsGenerator(
   RangePhotoIds.MAX
 );
 
-const generateAvatarId = createUniqueIdsGenerator(
-  RangeAvatarIds.MIN,
-  RangeAvatarIds.MAX
-);
-
 const generatePhotoUrl = () => `photos/${generatePhotoId()}.jpg`;
-
-const generateAvatarUrl = () => `img/avatar-${generateAvatarId()}.svg`;
 
 const createComment = () => ({
   id: generateIdComments(),
-  avatar: generateAvatarUrl(),
+  avatar: `img/avatar-${getRandomInteger(
+    RangeAvatarIds.MIN,
+    RangeAvatarIds.MAX
+  )}.svg`,
   message: `${getRandomArrayElement(COMMENT_MESSAGES)} ${getRandomArrayElement(
     COMMENT_MESSAGES
   )}`,
@@ -52,6 +48,7 @@ const createPost = () => ({
   url: generatePhotoUrl(),
   description: getRandomArrayElement(POST_DESCRIPTIONS),
   likes: getRandomInteger(RangeLikes.MIN, RangeLikes.MAX),
+
   comments: Array.from(
     { length: getRandomInteger(countOfComments.MIN, countOfComments.MAX) },
     createComment
