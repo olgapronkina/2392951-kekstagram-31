@@ -1,6 +1,7 @@
 import { createPosts } from './post-generator.js';
 import { renderPhotos } from './render-photos.js';
 import { openBigPicture } from './big-photo.js';
+import { initUploadModal } from './upload-photo-form.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const posts = createPosts(); //создаёт пост
@@ -14,3 +15,4 @@ picturesContainer.addEventListener('click', (evt) => {
     openBigPicture(posts, currentImageClone.dataset.pictureId);
   }
 });
+initUploadModal();
