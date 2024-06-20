@@ -1,11 +1,17 @@
 import { createPosts } from './post-generator.js';
 import { renderPhotos } from './render-photos.js';
 import { openBigPicture } from './big-photo.js';
-import { initUploadModal } from './upload-photo-form.js';
+import { uploadForm, initUploadModal } from './upload-photo-form.js';
+import { pristine } from './form-validation.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const posts = createPosts(); //создаёт пост
 renderPhotos(posts);
+
+uploadForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const valid = pristine.validate();
+});
 
 picturesContainer.addEventListener('click', (evt) => {
   const currentImageClone = evt.target.closest('.picture'); //обработчик действует при клике на ссылку или все ее дочерние элементы
