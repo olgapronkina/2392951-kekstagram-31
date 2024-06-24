@@ -1,10 +1,10 @@
-import { numDecline } from './util';
+import { isEscapeKey, numDecline } from './util';
 
 const HASHTAG_MAX_COUNT = 5;
 const MAX_HASHTAG_SYMBOLS = 20;
-const ErrorMesseges = {
-  // const COMMENT_MAX_LENGTH = 140;
+const COMMENT_MAX_LENGTH = 140;
 
+const ErrorMesseges = {
   HASHTAG_ERROR: 'Хештег не может состоять только из одной решётки',
   MAX_HASHTAG_SIMBOLS: 'Хештег содержит недопустимые символы',
   HASHTAG_SPACE: 'Хештеги должны разделяться пробелами',
@@ -15,7 +15,7 @@ const ErrorMesseges = {
 
 const photoEditorForm = document.querySelector('.img-upload__overlay');
 const hashtagsInput = photoEditorForm.querySelector('.text__hashtags');
-// // const commentInput = photoEditorForm.querySelector('.text__description');
+const commentInput = photoEditorForm.querySelector('.text__description');
 // // const createPostButton = photoEditorForm.querySelector('.img-upload__submit');
 
 let errorMessage = '';
@@ -83,6 +83,8 @@ const isHashtagValid = (value) => {
   });
 };
 
+const checkTextareaLength = (value) => value.length <= COMMENT_MAX_LENGTH;
+
 // const pristine = new Pristine(photoEditorForm, {
 //   classTo: 'img-upload__field-wrapper',
 //   errorClass: 'img-upload__field-wrapper--error',
@@ -98,6 +100,15 @@ const pristine = new Pristine(photoEditorForm, {
   errorTextClass: 'img-upload__field-wrapper--error',
 });
 
+const onFormSubmit = (evt) => {
+  evt.preventDefault();
+
+  if (pristine.validate()) {
+    hashtagsInput.value = hashtagsInput.value.trim.replaceAll(/\s+/g, ' ');
+    photoEditorForm.submit();
+  }
+};
+
 pristine.addValidator(
   hashtagsInput,
   isHashtagValid,
@@ -105,5 +116,13 @@ pristine.addValidator(
   1,
   true
 );
+
+pristine.addValidator(
+  commentInput,
+  checkTextareaLength,
+  ErrorMesseges.COMMENT_LENGTH
+);
+
+photoEditorForm.addEventListener('submit', onFormSubmit);
 
 export { pristine };
