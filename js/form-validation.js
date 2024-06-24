@@ -83,13 +83,19 @@ const isHashtagValid = (value) => {
   });
 };
 
+// const pristine = new Pristine(photoEditorForm, {
+//   classTo: 'img-upload__field-wrapper',
+//   errorClass: 'img-upload__field-wrapper--error',
+//   successClass: 'img-upload__field-wrapper--valid',
+//   errorTextParent: 'img-upload__field-wrapper',
+//   errorTextTag: 'div',
+//   errorTextClass: 'field-error',
+// });
+
 const pristine = new Pristine(photoEditorForm, {
-  classTo: 'img-upload__field-wrapper',
-  errorClass: 'img-upload__field-wrapper--error',
-  successClass: 'img-upload__field-wrapper--valid',
+  classTo: 'img-upload__form',
   errorTextParent: 'img-upload__field-wrapper',
-  errorTextTag: 'div',
-  errorTextClass: 'field-error',
+  errorTextClass: 'img-upload__field-wrapper--error',
 });
 
 pristine.addValidator(
