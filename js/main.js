@@ -10,7 +10,11 @@ renderPhotos(posts);
 
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const valid = pristine.validate();
+  const isValid = pristine.validate();
+
+  if (!isValid) {
+    evt.preventDefault();
+  }
 });
 
 picturesContainer.addEventListener('click', (evt) => {

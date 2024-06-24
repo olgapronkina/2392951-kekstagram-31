@@ -13,7 +13,11 @@ const onPhotoEditorResetBtnClick = (evt) => {
 };
 
 const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt)) {
+  if (
+    isEscapeKey(evt) &&
+    !evt.target.classList.contains('text__description') &&
+    !evt.target.classList.contains('text__hashtags')
+  ) {
     evt.preventDefault();
     closePhotoEditor();
   }
