@@ -7,6 +7,9 @@ const uploadFileControl = uploadForm.querySelector('#upload-file');
 const photoEditorOverlay = uploadForm.querySelector('.img-upload__overlay');
 const photoEditorResetBth = photoEditorOverlay.querySelector('#upload-cancel');
 
+// const effectLevel = uploadForm.querySelector('.img-upload__effect-level');
+// const effectsList = uploadForm.querySelector('.effects__list');
+
 const onPhotoEditorResetBtnClick = (evt) => {
   evt.preventDefault();
   closePhotoEditor();
@@ -39,10 +42,4 @@ const initUploadModal = () => {
   });
 };
 
-// const onHashtagInput = () => { isHashtagValid(inputHashtag.value); };
-
-// const onFormSubmit = (evt) => {
-
-// }
-
-export { uploadForm, initUploadModal };
+export { uploadForm, initUploadModal, photoEditorOverlay };

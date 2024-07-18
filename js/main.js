@@ -3,6 +3,7 @@ import { renderPhotos } from './render-photos.js';
 import { openBigPicture } from './big-photo.js';
 import { uploadForm, initUploadModal } from './upload-photo-form.js';
 import { pristine } from './form-validation.js';
+import './customazing-size-photo.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const posts = createPosts(); //создаёт пост
@@ -25,4 +26,5 @@ picturesContainer.addEventListener('click', (evt) => {
     openBigPicture(posts, currentImageClone.dataset.pictureId);
   }
 });
+
 initUploadModal();

@@ -1,4 +1,4 @@
-import { isEscapeKey, numDecline } from './util';
+import { numDecline } from './util';
 
 const HASHTAG_MAX_COUNT = 5;
 const MAX_HASHTAG_SYMBOLS = 20;
@@ -31,7 +31,7 @@ const isHashtagValid = (value) => {
 
   const hashtagArray = inputText.split(/\s+/);
 
-  //массив с правилами
+  //массив с правилами для хештегов
   const rules = [
     {
       check: hashtagArray.some((item) => item === '#'),
@@ -83,16 +83,7 @@ const isHashtagValid = (value) => {
   });
 };
 
-const checkTextareaLength = (value) => value.length <= COMMENT_MAX_LENGTH;
-
-// const pristine = new Pristine(photoEditorForm, {
-//   classTo: 'img-upload__field-wrapper',
-//   errorClass: 'img-upload__field-wrapper--error',
-//   successClass: 'img-upload__field-wrapper--valid',
-//   errorTextParent: 'img-upload__field-wrapper',
-//   errorTextTag: 'div',
-//   errorTextClass: 'field-error',
-// });
+const checkTextareaLength = (value) => value.length <= COMMENT_MAX_LENGTH; // Проверка длины комментария
 
 const pristine = new Pristine(photoEditorForm, {
   classTo: 'img-upload__form',
