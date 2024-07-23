@@ -4,6 +4,7 @@ import { openBigPicture } from './big-photo.js';
 import { uploadForm, initUploadModal } from './upload-photo-form.js';
 import { pristine } from './form-validation.js';
 import './customazing-size-photo.js';
+import './effects-slider.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const posts = createPosts(); //создаёт пост

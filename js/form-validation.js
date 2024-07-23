@@ -16,7 +16,6 @@ const ErrorMesseges = {
 const photoEditorForm = document.querySelector('.img-upload__overlay');
 const hashtagsInput = photoEditorForm.querySelector('.text__hashtags');
 const commentInput = photoEditorForm.querySelector('.text__description');
-// // const createPostButton = photoEditorForm.querySelector('.img-upload__submit');
 
 let errorMessage = '';
 
@@ -93,7 +92,6 @@ const pristine = new Pristine(photoEditorForm, {
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-
   if (pristine.validate()) {
     hashtagsInput.value = hashtagsInput.value.trim.replaceAll(/\s+/g, ' ');
     photoEditorForm.submit();
