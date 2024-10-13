@@ -6,9 +6,9 @@ const bigPictureElement = document.querySelector('.big-picture'); //шаблон
 const socialCommentsNode = bigPictureElement.querySelector('.social__comments'); //нода со списком комментов
 const socialCommentTemplate =
   socialCommentsNode.querySelector('.social__comment'); //шаблон коментов
-const commentsCountNode = bigPictureElement.querySelector(
-  '.social__comment-count'
-);
+// const commentsCountNode = bigPictureElement.querySelector(
+//   '.social__comment-count'
+// );
 const commentsLoaderNode = bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментов
 const socialShownComments = bigPictureElement.querySelector(
   '.social__comment-shown-count'
