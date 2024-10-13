@@ -16,10 +16,10 @@ const likesCountElement = bigPictureElement.querySelector('.likes-count'); //э�
 // );
 
 const commentCaptionNode = bigPictureElement.querySelector('.social__caption'); //элемент с описанием фотографии
-const commentsCountNode = bigPictureElement.querySelector(
-  '.social__comment-count'
-);
-const commentsLoaderNode = bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментариев
+// const commentsCountNode = bigPictureElement.querySelector(
+//   '.social__comment-count'
+// );
+// const commentsLoaderNode = bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментариев
 const bigPictureCancel = bigPictureElement.querySelector(
   '.big-picture__cancel'
 ); //Кнопка для выхода из полноэкранного просмотра изображения
