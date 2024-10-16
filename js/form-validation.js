@@ -1,4 +1,12 @@
 import { numDecline } from './util';
+import { sendData } from './api.js';
+import { sendDataSuccess, sendDataError } from './alert-message.js';
+import { closePhotoEditor } from './upload-photo-form.js';
+
+const SubmitButtonText = {
+  IDLE: 'Опубликовать',
+  SENDING: 'Публикую...',
+};
 
 const HASHTAG_MAX_COUNT = 5;
 const MAX_HASHTAG_SYMBOLS = 20;
@@ -13,9 +21,10 @@ const ErrorMesseges = {
   HASHTAG_FIRST: 'Хештег должен начинаться с #',
 };
 
-const photoEditorForm = document.querySelector('.img-upload__overlay');
+const photoEditorForm = document.querySelector('.img-upload__form');
 const hashtagsInput = photoEditorForm.querySelector('.text__hashtags');
 const commentInput = photoEditorForm.querySelector('.text__description');
+const buttonSubmit = document.querySelector('#upload-submit');
 
 let errorMessage = '';
 
@@ -90,12 +99,32 @@ const pristine = new Pristine(photoEditorForm, {
   errorTextClass: 'img-upload__field-wrapper--error',
 });
 
-const onFormSubmit = (evt) => {
-  evt.preventDefault();
-  if (pristine.validate()) {
-    hashtagsInput.value = hashtagsInput.value.trim.replaceAll(/\s+/g, ' ');
-    photoEditorForm.submit();
-  }
+const blockSubmitButton = () => {
+  buttonSubmit.disabled = true;
+  buttonSubmit.textContent = SubmitButtonText.SENDING;
+};
+
+const unblockSubmitButton = () => {
+  buttonSubmit.disabled = false;
+  buttonSubmit.textContent = SubmitButtonText.IDLE;
+};
+
+const addValidatingInputs = (onSuccess) => {
+  photoEditorForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    if (pristine.validate()) {
+      hashtagsInput.value = hashtagsInput.value.trim().replaceAll(/\s+/g, ' ');
+      blockSubmitButton();
+      sendData(new FormData(evt.target))
+        .then(() => {
+          onSuccess();
+          closePhotoEditor(); // закрываем редактор
+        })
+        .then(sendDataSuccess)
+        .catch(() => sendDataError())
+        .finally(unblockSubmitButton);
+    }
+  });
 };
 
 pristine.addValidator(
@@ -112,6 +141,6 @@ pristine.addValidator(
   ErrorMesseges.COMMENT_LENGTH
 );
 
-photoEditorForm.addEventListener('submit', onFormSubmit);
+// photoEditorForm.addEventListener('submit', onFormSubmit);
 
-export { pristine };
+export { pristine, addValidatingInputs };

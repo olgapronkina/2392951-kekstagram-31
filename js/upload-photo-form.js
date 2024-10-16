@@ -53,4 +53,5 @@ export {
   initUploadModal,
   photoEditorOverlay,
   onPhotoEditorResetBtnClick,
+  closePhotoEditor,
 };
