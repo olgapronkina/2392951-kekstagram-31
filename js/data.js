@@ -1,3 +1,5 @@
+const DEBOUNCE_DELAY_DEFAULT = 500;
+
 const POST_DESCRIPTIONS = [
   'Какая красота!',
   'Be happy',
@@ -98,4 +100,5 @@ export {
   HASHTAG_MAX_COUNT,
   MAX_HASHTAG_SYMBOLS,
   COMMENT_MAX_LENGTH,
+  DEBOUNCE_DELAY_DEFAULT,
 };

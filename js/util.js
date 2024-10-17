@@ -1,3 +1,5 @@
+import { DEBOUNCE_DELAY_DEFAULT } from './data';
+
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
@@ -32,8 +34,6 @@ function numDecline(num, nominative, genitiveSingular, genitivePlural) {
   }
   return num % 10 === 1 ? nominative : genitiveSingular;
 }
-
-const DEBOUNCE_DELAY_DEFAULT = 500;
 
 const debounce = (callback, timeoutDelay = DEBOUNCE_DELAY_DEFAULT) => {
   let timeoutId;
