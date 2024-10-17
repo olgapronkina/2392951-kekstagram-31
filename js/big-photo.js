@@ -8,7 +8,8 @@ const bigPictureImgElement = document
   .querySelector('img'); //нода для отображения выбранной по клику фотографии
 const likesCountElement = bigPictureElement.querySelector('.likes-count'); //элемент с кол-вом лайков
 
-const commentCaptionNode = bigPictureElement.querySelector('.social__caption'); //элемент с описанием фотографии
+const commentCaptionElement =
+  bigPictureElement.querySelector('.social__caption'); //элемент с описанием фотографии
 
 const bigPictureCancel = bigPictureElement.querySelector(
   '.big-picture__cancel'
@@ -37,7 +38,7 @@ const openBigPicture = (posts, pictureId) => {
 
   bigPictureImgElement.src = currentPhoto.url; //присвоили большой картинке ссылку
   likesCountElement.textContent = currentPhoto.likes; //присвоили большой картинке лайки
-  commentCaptionNode.textContent = currentPhoto.description;
+  commentCaptionElement.textContent = currentPhoto.description;
 
   //комментарии
   renderComments(currentPhoto.comments);

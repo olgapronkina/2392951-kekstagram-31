@@ -5,10 +5,12 @@ import { ALERT_SHOW_TIME } from './data.js';
 const templateDataError = document
   .querySelector('#data-error')
   .content.querySelector('.data-error');
+
 // Сообщение об успешной загрузке изображения
 const templateSuccess = document
   .querySelector('#success')
   .content.querySelector('.success');
+
 //  Сообщение с ошибкой загрузки изображения
 const templateAlert = document
   .querySelector('#error')

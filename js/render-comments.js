@@ -3,18 +3,20 @@ let currentCount = 0;
 let comments = [];
 
 const bigPictureElement = document.querySelector('.big-picture'); //шаблон для большого поста
-const socialCommentsNode = bigPictureElement.querySelector('.social__comments'); //нода со списком комментов
+const socialCommentsElement =
+  bigPictureElement.querySelector('.social__comments'); //нода со списком комментов
 const socialCommentTemplate =
-  socialCommentsNode.querySelector('.social__comment'); //шаблон коментов
+  socialCommentsElement.querySelector('.social__comment'); //шаблон коментов
 
-const commentsLoaderNode = bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментов
+const commentsLoaderElement =
+  bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментов
 const socialShownComments = bigPictureElement.querySelector(
   '.social__comment-shown-count'
 );
 const socialTotalComments = bigPictureElement.querySelector(
   '.social__comment-total-count'
 );
-socialCommentsNode.innerHTML = '';
+socialCommentsElement.innerHTML = '';
 
 const renderNextComments = () => {
   const socialCommentsFragment = document.createDocumentFragment();
@@ -33,27 +35,27 @@ const renderNextComments = () => {
       comment.message;
     socialCommentsFragment.appendChild(socialCommentNode);
   });
-  socialCommentsNode.appendChild(socialCommentsFragment);
+  socialCommentsElement.appendChild(socialCommentsFragment);
   socialShownComments.textContent = renderedCommentsLength;
   socialTotalComments.textContent = comments.length;
 
   if (renderedCommentsLength >= comments.length) {
-    commentsLoaderNode.classList.add('hidden');
+    commentsLoaderElement.classList.add('hidden');
   }
   currentCount += COUNT_STEP;
 };
 
 const clearComments = () => {
   currentCount = 0;
-  socialCommentsNode.innerHTML = '';
-  commentsLoaderNode.classList.remove('hidden');
-  commentsLoaderNode.removeEventListener('click', renderNextComments);
+  socialCommentsElement.innerHTML = '';
+  commentsLoaderElement.classList.remove('hidden');
+  commentsLoaderElement.removeEventListener('click', renderNextComments);
 };
 
 const renderComments = (currentPhotoComments) => {
   comments = currentPhotoComments;
   renderNextComments();
-  commentsLoaderNode.addEventListener('click', renderNextComments);
+  commentsLoaderElement.addEventListener('click', renderNextComments);
 };
 
 export { clearComments, renderComments };

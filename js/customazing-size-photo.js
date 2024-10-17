@@ -8,7 +8,6 @@ const biggerButton = photoEditorOverlay.querySelector(
 );
 const imgPrewiew = document.querySelector('.img-upload__preview img');
 const scaleControll = document.querySelector('.scale__control--value');
-// const photoEditorResetBth = photoEditorOverlay.querySelector('#upload-cancel');
 
 const SCALE_STEP = 25;
 let currentValue = parseInt(scaleControll.value, 10);
