@@ -61,6 +61,25 @@ const RangeAvatarIds = {
   MAX: 6,
 };
 
+const FILTER = {
+  default: 'filter-default',
+  random: 'filter-random',
+  discussed: 'filter-discussed',
+};
+
+const MAX_PICTURES_COUNT = 10;
+
+const SORTFUNC = {
+  random: () => 0.5 - Math.random(),
+  discussed: (a, b) => b.comments.length - a.comments.length,
+};
+
+const ALERT_SHOW_TIME = 5000;
+
+const HASHTAG_MAX_COUNT = 5;
+const MAX_HASHTAG_SYMBOLS = 20;
+const COMMENT_MAX_LENGTH = 140;
+
 export {
   POST_DESCRIPTIONS,
   COMMENT_NAMES,
@@ -72,4 +91,11 @@ export {
   RangeLikes,
   countOfComments,
   RangeAvatarIds,
+  FILTER,
+  MAX_PICTURES_COUNT,
+  SORTFUNC,
+  ALERT_SHOW_TIME,
+  HASHTAG_MAX_COUNT,
+  MAX_HASHTAG_SYMBOLS,
+  COMMENT_MAX_LENGTH,
 };
