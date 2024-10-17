@@ -1,6 +1,5 @@
 import { isEscapeKey } from './util.js';
-
-const ALERT_SHOW_TIME = 5000;
+import { ALERT_SHOW_TIME } from './data.js';
 
 // Сообщение с ошибкой загрузки изображений от других пользователей
 const templateDataError = document

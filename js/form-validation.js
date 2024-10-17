@@ -2,15 +2,16 @@ import { numDecline } from './util';
 import { sendData } from './api.js';
 import { sendDataSuccess, sendDataError } from './alert-message.js';
 import { closePhotoEditor } from './upload-photo-form.js';
+import {
+  HASHTAG_MAX_COUNT,
+  MAX_HASHTAG_SYMBOLS,
+  COMMENT_MAX_LENGTH,
+} from './data.js';
 
 const SubmitButtonText = {
   IDLE: 'Опубликовать',
   SENDING: 'Публикую...',
 };
-
-const HASHTAG_MAX_COUNT = 5;
-const MAX_HASHTAG_SYMBOLS = 20;
-const COMMENT_MAX_LENGTH = 140;
 
 const ErrorMesseges = {
   HASHTAG_ERROR: 'Хештег не может состоять только из одной решётки',
