@@ -8,18 +8,8 @@ const bigPictureImgElement = document
   .querySelector('img'); //нода для отображения выбранной по клику фотографии
 const likesCountElement = bigPictureElement.querySelector('.likes-count'); //элемент с кол-вом лайков
 
-// const socialShownComments = bigPictureElement.querySelector(
-//   '.social__comment-shown-count'
-// );
-// const socialTotalComments = bigPictureElement.querySelector(
-//   '.social__comment-total-count'
-// );
-
 const commentCaptionNode = bigPictureElement.querySelector('.social__caption'); //элемент с описанием фотографии
-// const commentsCountNode = bigPictureElement.querySelector(
-//   '.social__comment-count'
-// );
-// const commentsLoaderNode = bigPictureElement.querySelector('.comments-loader'); //Кнопка для загрузки новой порции комментариев
+
 const bigPictureCancel = bigPictureElement.querySelector(
   '.big-picture__cancel'
 ); //Кнопка для выхода из полноэкранного просмотра изображения
