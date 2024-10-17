@@ -1,13 +1,13 @@
-const templatePicture = document
-  .querySelector('#picture')
-  .content.querySelector('.picture');
-const picturesList = document.querySelector('.pictures');
-const photoFragment = document.createDocumentFragment();
+const renderPhotos = (photosToRender) => {
+  const picturesList = document.querySelector('.pictures');
+  const photoFragment = document.createDocumentFragment();
 
-const renderPhotos = (photos) => {
-  photos.forEach((photo) => {
+  photosToRender.forEach((photo) => {
     const { id, url, description, likes, comments } = photo;
-    const templatePictureClone = templatePicture.cloneNode(true);
+    const templatePictureClone = document
+      .querySelector('#picture')
+      .content.querySelector('.picture')
+      .cloneNode(true);
     const image = templatePictureClone.querySelector('.picture__img');
 
     templatePictureClone.dataset.pictureId = id;
@@ -18,6 +18,7 @@ const renderPhotos = (photos) => {
       comments.length;
     photoFragment.appendChild(templatePictureClone);
   });
+
   picturesList.appendChild(photoFragment);
 };
 
