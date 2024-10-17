@@ -82,6 +82,8 @@ const HASHTAG_MAX_COUNT = 5;
 const MAX_HASHTAG_SYMBOLS = 20;
 const COMMENT_MAX_LENGTH = 140;
 
+const FILE_TYPES = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
+
 export {
   POST_DESCRIPTIONS,
   COMMENT_NAMES,
@@ -101,4 +103,5 @@ export {
   MAX_HASHTAG_SYMBOLS,
   COMMENT_MAX_LENGTH,
   DEBOUNCE_DELAY_DEFAULT,
+  FILE_TYPES,
 };

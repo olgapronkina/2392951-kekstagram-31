@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util';
 import { resetImgFilter } from './effects-slider';
 import { resetImgSize } from './customazing-size-photo';
+import { FILE_TYPES } from './data';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const pageBody = document.querySelector('body');
@@ -40,18 +41,31 @@ function closePhotoEditor() {
 }
 
 const initUploadModal = () => {
-  uploadFileControl.addEventListener('change', () => {
-    photoEditorOverlay.classList.remove('hidden');
-    pageBody.classList.add('modal-open');
-    photoEditorResetBth.addEventListener('click', onPhotoEditorResetBtnClick);
-    document.addEventListener('keydown', onDocumentKeydown);
+  uploadFileControl.addEventListener('change', (evt) => {
+    const file = evt.target.files[0]; // получает выбранный файл
+    const fileName = file.name.toLowerCase();
+    const matches = FILE_TYPES.some((item) => fileName.endsWith(item));
+    if (matches) {
+      const fileURL = URL.createObjectURL(file); // создает URL для файла
+
+      // устанавливает источник изображения для предварительного просмотра
+      const previewImage = photoEditorOverlay.querySelector(
+        '.img-upload__preview img'
+      );
+      previewImage.src = fileURL;
+
+      // обновляет изображения на радио-кнопках
+      const effectIcons = document.querySelectorAll('.effects__preview');
+      effectIcons.forEach((icon) => {
+        icon.style.backgroundImage = `url(${fileURL})`;
+      });
+
+      photoEditorOverlay.classList.remove('hidden');
+      pageBody.classList.add('modal-open');
+      photoEditorResetBth.addEventListener('click', onPhotoEditorResetBtnClick);
+      document.addEventListener('keydown', onDocumentKeydown);
+    }
   });
 };
 
-export {
-  uploadForm,
-  initUploadModal,
-  photoEditorOverlay,
-  onPhotoEditorResetBtnClick,
-  closePhotoEditor,
-};
+export { uploadForm, initUploadModal, photoEditorOverlay, closePhotoEditor };
